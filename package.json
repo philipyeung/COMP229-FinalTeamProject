@@ -4,14 +4,16 @@
   "private": true,
   "scripts": {
     "start": "node ./server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "heroku-postbuild": "ng build — prod"
   },
   "engines": {
     "node": "^12.18.3",
     "npm": "^6.0.0"
   },
   "dependencies": {
-    "@angular/cli": "^13.0.1",
+    "@angular/cli": "^13.3.0",
+    "@angular/compiler-cli": "^13.3.0",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "bootstrap": "^5.1.1",
     "connect-flash": "^0.1.1",
@@ -30,7 +32,9 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
-    "popper.js": "^1.16.1"
+    "path": "^0.12.7",
+    "popper.js": "^1.16.1",
+    "typescript": "^4.6.2"
   },
   "description": "demo app for comp229",
   "main": "index.js",
@@ -45,6 +49,8 @@
   },
   "homepage": "https://github.com/AudreyBernierLarose/COMP229-F2020-Week3#readme",
   "devDependencies": {
+    "@angular/cli": "^13.3.0",
+    "@angular/compiler-cli": "^13.3.0",
     "@types/connect-flash": "^0.0.37",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
