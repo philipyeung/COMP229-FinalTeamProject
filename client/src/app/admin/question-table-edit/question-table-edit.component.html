@@ -1,0 +1,49 @@
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Question Table Edit Component Html - question-table-edit.component.html
+-->
+
+<!--Table-->
+<table class="table table-sm table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Choice 1</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--Questions-->
+        <tr *ngFor='let q of getQuestions()'>
+            <td>{{ q.title }}</td>
+            <td>{{ q.choice1 }}</td>
+            <!--Buttons-->
+            <td>
+                <button class="btn btn-sm btn-primary m-1" (click)='editQuestion(q._id)'> 
+                    <i class="fas fa-pencil-alt"></i> Edit
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-sm btn-danger m-1" (click)='deleteQuestion(q._id)'>
+                    <i class="fas fa-trash-alt"></i> Delete
+                </button>
+            </td>
+            <td>
+                <button class="btn btn-success btn-sm float-right"
+                (click)='addQuestionToQuestionnaire(q)'>
+                    Add To Survey
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<!--Create New Question Button-->
+<button class="btn btn-primary">
+    <i class="fas fa-plus-circle"></i> Create a Question
+</button>

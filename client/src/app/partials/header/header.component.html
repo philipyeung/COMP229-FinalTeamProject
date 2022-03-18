@@ -1,0 +1,60 @@
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Header Component - header.component.html
+-->
+
+<!--Main NavBar-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!--HOME-->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item" [routerLinkActive]='["active"]' [routerLinkActiveOptions]="{exact:true}">
+            <a class="nav-link" aria-current="page" routerLink="/home"><i class="fas fa-lg fa-home"></i> Home</a>
+            </li>
+
+            <!--ABOUT US-->
+            <li class="nav-item" [routerLinkActive]='["active"]' >
+                <a class="nav-link" routerLink="/about"><i class="fas fa-info-circle"></i> About Us</a>
+            </li>
+
+            <!--SURVEYS-->
+            <li class="nav-item" [routerLinkActive]='["active"]' >
+                <a class="nav-link" routerLink="/question-list"><i class="fas fa-poll"></i> Surveys</a>
+            </li>
+
+            <!--ADMIN-->
+            <li *ngIf='isLoggedIn()' class="nav-item ml-5" [routerLinkActive]='["active"]' >
+              <a class="nav-link text-warning" routerLink="/admin/main/surveys"><i class="fas fa-lg fa-user-shield"></i> Admin</a>
+            </li>
+            
+            <!--WELCOME ADMIN-->
+            <li *ngIf='isLoggedIn()' 
+              class="navbar-text text-success ml-5 mr-5 d-none d-lg-inline">
+                <i class="fas fa-lg fa-user"></i> Welcome, {{ user.displayName }}   
+            </li>
+
+            <!--LOGOUT-->
+            <li *ngIf='isLoggedIn()' class="nav-item">
+              <a (click)='onLogoutClick()' routerLink='/logout' class="nav-link" routerLink="/login">
+                <i class="fas fa-lg fa-sign-out-alt"></i> Logout</a>
+            </li>
+
+            <!--LOGIN-->
+            <li *ngIf='!isLoggedIn()' class="nav-item">
+              <a class="nav-link" routerLink="/login"><i class="fas fa-lg fa-sign-in-alt"></i> Login</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+

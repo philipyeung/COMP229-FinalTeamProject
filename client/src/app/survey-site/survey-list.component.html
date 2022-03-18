@@ -1,0 +1,69 @@
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Survey-List Component Html - survey-list.component.html
+-->
+
+<main>
+    <div class="container">
+        <p class="titles">Surveys</p>
+        <div class="row">
+
+            <!--Categories-->
+            <div class="col-2 p-2">
+                <div class="d-grid gap-2">
+                    <button class="btn btn-secondary" 
+                    (click)='changeCategory()'>
+                    All Categories
+                    </button>
+                    <button *ngFor='let category of categories'
+                    class="btn btn-secondary"
+                    [class.active] = 'category == selectedCategory' (click)='changeCategory(category)'>
+                    {{ category }}
+                    </button>
+                </div>
+            </div>
+            
+            <!--Surveys-->
+            <div class="col-9 p-2">
+                <div *ngFor='let survey of surveys' class="card m-1 p-1 bg-light">
+                    
+                            <h4>
+                                {{ survey.title }}
+                                <span class="badge rounded-pill bg-warning float-end">
+                                {{ survey.category }}
+                                </span>
+                            </h4>
+                        <div class="card-text bg-white p-1">{{ survey.description }}
+                            <button class="btn btn-secondary float-end"
+                            (click)='selectSurvey(survey._id)'>
+                                Select Survey
+                            </button>
+                        </div>
+                
+                </div>
+
+                <!-- Pagination -->
+                <div class="form-inline float-end" style="width: 130px;">
+                    <select class="form-control" [value]='surveysPerPage' (change)='changePageSize($any($event.target).value)'>
+                        <option value="3">3 per page</option>
+                        <option value="4">4 per page</option>
+                        <option value="6">6 per page</option>
+                        <option value="8">8 per page</option>
+                    </select>
+                </div> 
+
+                <!--Page Button-->
+                <div class="btn-group float-end m-1">
+                    <button *counter='let page of pageCount' (click)='changePage(page)'
+                            class="btn btn-outline-secondary"
+                            [class.active]='page == selectedPage'>
+                            {{ page }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

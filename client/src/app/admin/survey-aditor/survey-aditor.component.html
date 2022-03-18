@@ -1,0 +1,64 @@
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Survey-Aditor Component Html - survey-aditor.component.html
+-->
+
+<!--Conditional Thank you-->
+<div *ngIf='surveySent' class="m-2 text-center">
+    <h2>Thanks!</h2>
+    <p>Thanks for creating your survey.</p>
+    <button class="btn btn-primary" routerLink='/admin/main/surveys'>Return to Surveys</button>
+</div>
+
+<div *ngIf='!surveySent'>
+    <div  class="bg-primary p-2 text-white">
+        <h5>Edit Survey</h5>
+    </div>
+<!--Form-->
+<form novalidate #form='ngForm' (ngSubmit)='updateSurvey(form)'>
+    <div class="form-group">
+        <label>Survey Title</label>
+        <input  type="text" class="form-control" name='title' [(ngModel)]='survey.title'>
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+        <input type="text" class="form-control" name='category' [(ngModel)]='survey.category'>
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" name='description' [(ngModel)]='survey.description'>
+    </div>
+
+    <!--Buttons-->
+    <button class="btn btn-warning m-1" type="submit">
+        <i class="fas fa-plus-circle"></i> Edit
+    </button>
+    <button class="btn btn-secondary m-1" routerLink='/admin/main/page-edit'>
+        Add Question
+    </button>
+    <button class="btn btn-secondary m-1" routerLink='/admin/main/surveys'>
+        Back
+    </button>
+
+</form>
+
+</div> 
+     <!--Conditional Section IF No Books-->
+    <div *ngIf='questionnaire.lines.length == 0'>
+        <label class="text-center" colspan="4">No questions in this survey</label>
+    </div> 
+
+    <!--Repeating section for questions-->
+    <div *ngFor='let line of questionnaire.lines'>
+        <label> {{ line.question.title }} </label><br>
+        <label class="text-right">{{ line.question.choice1 }}</label>
+       
+            <button class="btn btn-sm btn-danger"
+                    (click)='questionnaire.removeLine(line.question._id)'>
+                    Remove
+            </button> 

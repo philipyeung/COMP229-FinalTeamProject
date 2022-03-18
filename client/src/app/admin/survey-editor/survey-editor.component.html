@@ -1,0 +1,83 @@
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Survey Editor Component Html - survey-editor.component.html
+-->
+<main>
+<!--Conditional Title-->
+<div *ngIf='surveySent' class="m-2 text-center">
+    <h2>Thanks!</h2>
+    <p>Thanks for creating a survey.</p>
+    <button class="btn btn-primary" (click)='surveyList()'>Return to Surveys</button>
+</div>
+<div *ngIf='!surveySent'>
+    <p class="titles" style="padding-top: 30px;">Add Survey</p>
+<form novalidate #form='ngForm' (ngSubmit)='submitSurvey(form)'>
+
+    <!--Survey Information-->
+    <div class="form-group">
+        <label>Survey Title</label>
+        <input  type="text" class="form-control" name='title' [(ngModel)]='survey.title'>
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+        <input type="text" class="form-control" name='category' [(ngModel)]='survey.category'>
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <input type="text" class="form-control" name='description' [(ngModel)]='survey.description'>
+    </div>
+
+    <div class="form-group">
+        <label>Activates In: 
+            <input type="date" class="form-control" name='activatesIn' [(ngModel)]='survey.activatesIn'>
+        </label>
+    </div>
+
+    <div class="form-group">
+        <label>How long does the survey stay active? 
+            <input type="date" class="form-control" name='deactivatesIn' [(ngModel)]='survey.deactivatesIn'>
+        </label>
+    </div>
+
+<!--Buttons-->
+<div style="text-align: center;">
+    <button class="btn btn-success m-1" type="submit">
+        <i class="fas fa-check-square"></i> Create Survey
+    </button>
+    <button class="btn btn-primary m-1" (click)="addQuestion()">
+        <i class="fas fa-plus-circle">  Add Question(s) </i> 
+    </button>
+
+    <button class="btn btn-secondary m-1" (click)="cancel()">
+        <i class="fas fa-undo"> Cancel </i>
+    </button>
+</div>
+</form>
+<!--Conditional Section IF No Surveys-->
+<div *ngIf='questionnaire.lines.length == 0' style="text-align: center;">
+    <label class="text-center" colspan="4">No questions in this survey</label>
+</div> 
+
+    <!--Repeating section for questions-->
+    <div *ngFor='let line of questionnaire.lines'>
+        <label> {{ line.question.title }} </label><br>
+        <ul>
+            <li><label class="text-right">{{ line.question.choice1 }}</label></li>
+            <li><label class="text-right">{{ line.question.choice2 }}</label></li>
+            <li><label class="text-right">{{ line.question.choice3 }}</label></li>
+            <li><label class="text-right">{{ line.question.choice4 }}</label></li>
+        </ul>
+    <button class="btn btn-sm btn-danger"
+            (click)='questionnaire.removeLine(line.question._id)'>
+            Remove
+    </button> 
+</div> 
+
+     
+
+            

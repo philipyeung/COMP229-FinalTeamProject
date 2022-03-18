@@ -1,0 +1,54 @@
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Question Editor Component Html - question-editor.component.html
+-->
+
+<main>
+    <!--Conditional title-->
+    <div class="container">
+        <div
+            [class.text-dark]='editing'
+            [class.text-dark]='editing'>
+            <h5>{{ editing ? 'Edit' : 'Add' }} Question</h5>
+        </div>
+
+        <!--Form-->
+        <form novalidate #form='ngForm' (ngSubmit)='save(form)'>
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" name='title' [(ngModel)]='question.title'>
+            </div>
+
+            <div class="form-group">
+                <label>Choice 1</label>
+                <input type="text" class="form-control" name='choich1' [(ngModel)]='question.choice1'>
+            </div>
+
+            <div class="form-group">
+                <label>Choice 2</label>
+                <input type="text" class="form-control" name='choich2' [(ngModel)]='question.choice2'>
+            </div>
+
+            <div class="form-group">
+                <label>Choice 3</label>
+                <input type="text" class="form-control" name='choich3' [(ngModel)]='question.choice3'>
+            </div>
+
+            <div class="form-group">
+                <label>Choice 4</label>
+                <input type="text" class="form-control" name='choich4' [(ngModel)]='question.choice4'>
+            </div>
+
+            <!--Buttons-->
+            <button class="btn btn-primary m-1" [class.btn-warning]='editing' type="submit">
+                <i class="{{editing ? 'fas fa-save' : 'fas fa-plus-circle'}}"></i> {{ editing ? "Save" : "Add" }}
+            </button>
+            <button type='reset' class="btn btn-secondary" routerLink='/admin/main/questions'>
+                <i class="fas fa-undo"></i> Cancel
+            </button>
+        </form>
+    </div>
+</main>

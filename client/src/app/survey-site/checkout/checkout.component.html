@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div *ngIf='surveySent' class="m-2 text-center">
+        <h2>Thanks!</h2>
+        <p>Thanks for placing your survey.</p>
+        <p>It is greatly appreciated</p>
+        <button class="btn btn-primary" routerLink='/question-list'>Return to Surveys</button> <!--question-list might need to be survey-list-->
+    </div>
+
+    <!--Form-->
+    <form *ngIf='!surveySent' #form='ngForm' novalidate 
+        (ngSubmit)='submitSurvey(form)' class="m-2">
+
+        <!--Name-->
+        <div class="form-group">
+            <label>Name</label>
+            <input class="form-control" #name='ngModel' name='name'
+            [(ngModel)]='survey.name' required>
+            <span *ngIf='submitted && name.invalid' class="text-danger">
+                Please enter your name.
+            </span>
+        </div>
+
+        <!--Address-->
+        <div class="form-group">
+            <label>Address</label>
+            <input class="form-control" #address='ngModel' name='address'
+            [(ngModel)]='survey.address' required>
+            <span *ngIf='submitted && address.invalid' class="text-danger">
+                Please enter your address.
+            </span>
+        </div>
+
+        <!--City-->
+        <div class="form-group">
+            <label>City</label>
+            <input class="form-control" #city='ngModel' name='city'
+            [(ngModel)]='survey.city' required>
+            <span *ngIf='submitted && city.invalid' class="text-danger">
+                Please enter your city.
+            </span>
+        </div>
+
+        <!--Province-->
+        <div class="form-group">
+            <label>Province</label>
+            <input class="form-control" #province='ngModel' name='province'
+            [(ngModel)]='survey.province' required>
+            <span *ngIf='submitted && province.invalid' class="text-danger">
+                Please enter your province.
+            </span>
+        </div>
+
+        <!--Postal Code-->
+        <div class="form-group">
+            <label>Zip/Postal Code</label>
+            <input class="form-control" #postalCode='ngModel' name='postalCode'
+            [(ngModel)]='survey.postalCode' required>
+            <span *ngIf='submitted && postalCode.invalid' class="text-danger">
+                Please enter your zip / postal code.
+            </span>
+        </div>
+
+        <!--Country-->
+        <div class="form-group">
+            <label>Country</label>
+            <input class="form-control" #country='ngModel' name='country'
+            [(ngModel)]='survey.country' required>
+            <span *ngIf='submitted && country.invalid' class="text-danger">
+                Please enter your country.
+            </span>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-secondary m-1" routerLink='/questionnaire'>Back</button>
+            <button class="btn btn-primary m-1" type="submit">Complete Order</button>
+        </div>
+
+    </form>
+</div>

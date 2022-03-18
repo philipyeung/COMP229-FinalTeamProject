@@ -1,0 +1,67 @@
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Survey Table Component Html - survey-table.component.html
+-->
+
+<main>
+  <!--Title-->
+  <p class="titles">Previously Created Surveys</p>
+  <table class="table table-sm">
+    <tbody>
+      <tr *ngIf='getSurveys().length == 0'>
+        <td colspan="5">There are no surveys</td>
+      </tr>
+
+      <!--Conditionary Survey List-->
+      <ng-template ngFor let-s [ngForOf]='getSurveys()'>
+        <tr>
+          <th>Title</th>
+          <td>{{ s.title }}</td>
+        </tr>
+          <th>Questions</th>
+          <th>Choices</th>
+          <th>Category</th>
+          <th colspan="2">Description</th>
+
+          <!--Delete Button-->
+          <button class="btn btn-danger m-1" (click)='delete(s._id)'>
+            <i class="fas fa-trash-alt"></i> Delete </button>
+
+            <!--Stats Button-->
+          <button class="btn btn-success" (click)='stats(s._id)'>
+            <i class="fas fa-info-circle"></i> Stats</button>
+        
+            <!--Questions and choices-->
+          <tr *ngFor='let line of s.questionnaire.lines'>
+            <td>{{ line.question.title }}</td>
+            <td>{{ line.question.choice1 }}<br>  
+                {{ line.question.choice2 }}<br>
+                {{ line.question.choice3 }}<br>
+                {{ line.question.choice4 }}</td>
+            <td>{{ s.category }}</td>
+            <td>{{ s.description }}</td>
+          </tr>
+      </ng-template>
+    </tbody>
+  </table> 
+
+  <!--Create a survey Button-->
+  <div class="d-grid gap-2 col-3 mx-auto">
+    <button class="btn btn-primary" routerLink="/admin/main/surveys/add">
+      <i class="fas fa-plus-circle"></i> Create a Survey
+    </button>
+
+    <!--Filled Out Surveys-->
+    <button class="btn btn-success" routerLink="/admin/main/survey-answered">
+      <i class="fas fa-list"></i> Filled Out Surveys
+    </button>
+
+    <!--Modify Account Survey-->
+    <button class="btn btn-warning" (click)='modifyUser(user._id)'>
+      <i class="fas fa-exchange-alt"></i> Modify Account
+    </button>
+  </div>
+</main>

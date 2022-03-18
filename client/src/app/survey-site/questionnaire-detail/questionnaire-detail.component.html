@@ -1,0 +1,59 @@
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Questionnaire-Detail Component Html - questionnaire-detail.component.html
+-->
+
+<!--Main Content-->
+<main>
+<div class="container">
+    <div class="row">
+        <div class="col mt-2">
+
+            <!--Titles-->
+            <p class="titles">{{ survey.title }}</p>
+            <h5 class="text-center">{{ survey.category }}</h5>
+            <h6 class="text-center"> {{ survey.description }}</h6>
+
+            <!--Displays Questions and Choices In a Repeating Manner-->
+            <table class="table table-bordered table-stripped p-2">
+                <tr *ngFor='let line of survey.questionnaire.lines; let i = index;'>
+                    <td>{{ line.question.title }}</td>
+                    <td> 
+                        <label>{{ line.question.choice1 }}</label>
+                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice1}} [(ngModel)]='line.answer'>
+                    </td>
+                    <td>
+                        <label>{{ line.question.choice2 }}</label>
+                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice2}} [(ngModel)]='line.answer'>
+                    </td>
+                    <td>
+                        <label>{{ line.question.choice3 }}</label>
+                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice3}} [(ngModel)]='line.answer'>
+                    </td>
+                    <td>
+                        <label>{{ line.question.choice4 }}</label>
+                        <input type="radio" name={{i}} class="form-control-sm" value={{line.question.choice4}} [(ngModel)]='line.answer'>
+                    </td>
+                </tr>
+            </table>       
+        </div>            
+    </div>
+</div>
+
+<!--Buttons-->
+    <div class="row">
+        <div class="col">
+            <div class="text-center">
+                <button class="btn btn-secondary m-1" routerLink='/question-list'>
+                    Back to Surveys
+                </button>
+                <button class="btn btn-success m-1" (click)="submitSurvey(survey)">
+                    Submit Survey
+                </button>
+            </div>
+        </div>
+    </div> 
+</main>

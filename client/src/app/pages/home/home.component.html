@@ -1,0 +1,43 @@
+
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Home Component Html - home.component.html
+-->
+
+<!--Main Content-->
+<main class="container">
+    <div class="button-container">
+
+      <!--Banner-->
+      <img src="../../assets/images/surveyBanner4_big.jpg" style="width: 100%; margin-top: 10px; border-style: solid; border-color: black; border-width: 2px;" alt="Banner">
+        <a href="/question-list">
+
+          <!--Button to Surveys-->
+            <input type="button" class="btn btn-success" value="Select a Survey"/>
+        </a>
+    </div>
+  
+    <div>
+      <table style="margin-top: 40px;">
+        <tr>
+          <td>
+          <!-- Survey Template -->
+            <div class="card" style="width: 40rem;">
+              <img src="../../assets/images/surveyBanner5.jpg" class="card-img-top" alt="Survey Template 1">
+                <div class="card-body">
+                  <h5 class="card-title" style="text-align: center;">Multiple Choice Survey</h5>
+                  <p class="card-text">Click the link below to start creating your multiple choice survey!</p>
+                  <a *ngIf='isLoggedIn()' routerLink="/admin/main/surveys" class="btn btn-success">Create</a>
+                  <a *ngIf='!isLoggedIn()' routerLink="/login" class="btn btn-success">Create</a>
+                </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+</main>
+
+  

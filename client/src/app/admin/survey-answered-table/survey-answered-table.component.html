@@ -1,0 +1,51 @@
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Survey Answered Table Component Html - survey-answered-table.component.html
+-->
+
+<main>
+<!--Title-->
+<p class="titles">Filled Out Surveys</p>
+<div class="container">
+    <table class="table table-sm">
+        <tbody>
+        <tr *ngIf='getSurveys().length == 0'>
+            <td colspan="5">There are no filled surveys</td>
+        </tr>
+
+        <!--Table with surveys-->
+        <ng-template ngFor let-s [ngForOf]='getSurveys()'>
+            <tr>
+                <th>Title</th>
+                <td>{{ s.title }}</td>
+            </tr>
+                <th>Questions</th>
+                <th>Answers</th>
+                <th>Category</th>
+                <th colspan="2">Description</th>
+
+                <!--Delete Button-->
+                <button class="btn btn-danger" (click)='delete(s._id)'>
+                    <i class="fas fa-trash-alt"></i> Delete </button>
+
+            <tr *ngFor='let line of s.questionnaire.lines'>
+                <td>{{ line.question.title }}</td>
+                <td>{{ line.answer }}</td>
+                <td>{{ s.category }}</td>
+                <td>{{ s.description }}</td>
+            </tr>
+        </ng-template>
+        </tbody>
+    </table>
+    
+    <!--Back Button-->
+    <div class="d-grid gap-2 col-3 mx-auto">
+        <button class="btn btn-secondary" routerLink="/admin/main/surveys">
+            <i class="fas fa-undo"></i> Back
+        </button>
+    </div>
+</div>
+</main>

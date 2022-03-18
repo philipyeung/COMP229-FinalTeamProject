@@ -1,0 +1,66 @@
+<!--
+Student IDs: 
+  Ho, Minh Trung (301153049)
+  Yeung, Kai Hong (301229539)
+WebApp name: Survey Site
+Description: Stats Table Component Html - stats-table.component.html
+-->
+
+<main>
+    <p class="titles">Statistic</p>
+        <div class="container">
+
+            <!--Exported Tabled-->
+            <table class="table table-sm" #statisticTable>
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">
+                            Number Of Respondents
+                        </th>
+                        <th scope="col">
+                            Choice 1
+                        </th>
+                        <th scope="col">
+                            Choice 2
+                        </th>
+                        <th scope="col">
+                            Choice 3
+                        </th>
+                        <th scope="col">
+                            Choice 4
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div>{{numberAnsweredSurveys}}</div>
+                        </td>
+                        <td>
+                            <div>{{choice1}}</div>
+                        </td>
+                        <td>
+                            <div>{{choice2}}</div>
+                        </td>
+                        <td>
+                            <div>{{choice3}}</div>
+                        </td>
+                        <td>
+                            <div>{{choice4}}</div>
+                        </td>  
+                    </tr>
+                </tbody>
+            </table>
+
+        <!--Buttons-->
+        <div class="d-grid gap-2 col-3 mx-auto">
+            <button class="btn btn-secondary" routerLink="/admin/main/surveys">
+                <i class="fas fa-plus-circle"></i> Back
+            </button>
+
+            <button class="btn btn-success" (click)='exportElmToExcel()'>
+                <i class="fas fa-plus-circle"></i> Export To Excel
+            </button>
+        </div>
+    </div>
+</main>
