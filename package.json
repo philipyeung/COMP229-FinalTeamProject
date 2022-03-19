@@ -40,15 +40,16 @@
   "description": "demo app for comp229",
   "main": "index.js",
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AudreyBernierLarose/COMP229-F2020-Week3.git"
+    "type": "git",    
+    "url": "git+https://github.com/philipyeung/COMP229-FinalTeamProject.git"
+    
   },
-  "author": "Audrey B. Larose",
+  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AudreyBernierLarose/COMP229-F2020-Week3/issues"
+    "url": "https://github.com/philipyeung/COMP229-FinalTeamProject/issues"
   },
-  "homepage": "https://github.com/AudreyBernierLarose/COMP229-F2020-Week3#readme",
+  "homepage": "https://github.com/philipyeung/COMP229-FinalTeamProject#readme",
   "devDependencies": {
     "@angular/cli": "^13.3.0",
     "@angular/compiler-cli": "^13.3.0",
