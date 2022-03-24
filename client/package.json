@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "json": "json-server data.js -p 3000 -m authMiddleware.js",
+    "heroku-postbuild": "npm run build",
     "postinstall": "ng build --aot"
   },
   "private": true,
