@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./server.js",
     "server": "nodemon server.js",
-    "heroku-postbuild": "./public/scripts/heroku.build"
+    "heroku-postbuild": "bash ./public/scripts/heroku.build"
   },
   "engines": {
     "node": "^12.18.3",
