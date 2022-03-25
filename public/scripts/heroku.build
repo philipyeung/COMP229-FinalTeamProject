@@ -14,10 +14,10 @@ fi
 
   cd $PROJECT_ROOT
 
-  if [ "$BUILD_ENV" = "client" ]; then
-    yarn workspace client build
-  elif [ "$BUILD_ENV" = "api" ]; then
-    yarn workspace api build
+  if [ "$BUILD_ENV" = "comp229-final-team-project" ]; then
+    yarn workspace comp229-final-team-project build
+  elif [ "$BUILD_ENV" = "comp229-team-project-client" ]; then
+    yarn workspace comp229-team-project-client build
   else
     echo "Error: no build config for INATO_BUILD_ENV value '$INATO_BUILD_ENV'"
     exit 1

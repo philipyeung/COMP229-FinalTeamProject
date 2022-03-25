@@ -2,10 +2,11 @@
   "name": "comp229-f2021-week3",
   "version": "0.0.1",
   "private": true,
+  "workspaces": ["survey-client"],
   "scripts": {
     "start": "node ./server.js",
     "server": "nodemon server.js",
-    "heroku-postbuild": "bash ./public/scripts/heroku.build"
+    "postinstall": "cd ./client && npm install"
   },
   "engines": {
     "node": "^12.18.3",
