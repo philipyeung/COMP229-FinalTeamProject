@@ -9,7 +9,7 @@
     "test": "ng test",
     "json": "json-server data.js -p 3000 -m authMiddleware.js",
     "postinstall": "ng build --aot",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "npm run build"
   },
   "engines": {
     "node": "^12.18.3",
