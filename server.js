@@ -8,6 +8,11 @@ var app = require('./server/config/app');
 var debug = require('debug')('week3:server');
 var http = require('http');
 
+// app.use(express.static(__dirname + '/dist/<app-name>'));
+// app.get('/*', function(req,res) {
+// res.sendFile(path.join(__dirname+
+// '/dist/<app-name>/index.html'));});
+
 /**
  * Get port from environment and store in Express.
  */
