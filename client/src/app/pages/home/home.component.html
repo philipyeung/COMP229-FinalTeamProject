@@ -16,7 +16,7 @@ Description: Home Component Html - home.component.html
         <a href="/question-list">
 
           <!--Button to Surveys-->
-            <input type="button" class="btn btn-success" value="Select a Survey"/>
+            <input type="button" class="btn btn-success center" value="Select a Survey"/>
         </a>
     </div>
   
@@ -29,9 +29,9 @@ Description: Home Component Html - home.component.html
               <img src="../../assets/images/surveyBanner5.jpg" class="card-img-top" alt="Survey Template 1">
                 <div class="card-body">
                   <h5 class="card-title" style="text-align: center;">Multiple Choice Survey</h5>
-                  <p class="card-text">Click the link below to start creating your multiple choice survey!</p>
-                  <a *ngIf='isLoggedIn()' routerLink="/admin/main/surveys" class="btn btn-success">Create</a>
-                  <a *ngIf='!isLoggedIn()' routerLink="/login" class="btn btn-success">Create</a>
+                  <p class="card-text" style="text-align: center;">Login and start to Create your multiple choice survey</p>
+                  <a *ngIf='isLoggedIn()' routerLink="/admin/main/surveys" class="btn btn-success center">Create</a>
+                  <a *ngIf='!isLoggedIn()' routerLink="/login" class="btn btn-success center">Login</a>
                 </div>
             </div>
           </td>
