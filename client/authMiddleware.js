@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
-const APP_SECRET = 'Secret';
-const USERNAME = 'Admin2';
-const PASSWORD = 'test';
+const APP_SECRET = 'SomeSecret';
+const USERNAME = 'admin';
+const PASSWORD = 'admin';
 
 const mappings =
 {
