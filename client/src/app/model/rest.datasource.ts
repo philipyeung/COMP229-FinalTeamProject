@@ -18,6 +18,7 @@ import { SurveyAnswered } from './surveyAnswered.model';
 
 const PROTOCOL = 'http';
 const PORT = 3000;
+//const PROTOCOL = 'https';
 //const PORT = 3500;
 
 @Injectable()
@@ -41,7 +42,8 @@ export class RestDataSource
               private jwtService: JwtHelperService)
   {
     this.user = new User();
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+    //this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+    this.baseUrl = 'https://comp229-final-team-project.herokuapp.com/';
   }
 
   /*USER*/
