@@ -5,8 +5,7 @@
   "workspaces": ["survey-client"],
   "scripts": {
     "start": "node ./server.js",
-    "server": "nodemon server.js",
-    "postinstall": "cd ./client && npm install"
+    "server": "nodemon server.js"
   },
   "engines": {
     "node": "^12.18.3",
