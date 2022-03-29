@@ -12,11 +12,15 @@ Description: Home Component Html - home.component.html
     <div class="button-container">
 
       <!--Banner-->
+
+      <!--<a class="nav-link" routerLink="/question-list"><i class="fas fa-poll"></i> Surveys</a>-->
+
       <img src="../../assets/images/surveyBanner4_big.jpg" style="width: 100%; margin-top: 10px; border-style: solid; border-color: black; border-width: 2px;" alt="Banner">
-        <a href="/question-list">
+        <a routerLink="/question-list">
 
           <!--Button to Surveys-->
             <input type="button" class="btn btn-success center" value="Select a Survey"/>
+            
         </a>
     </div>
   
