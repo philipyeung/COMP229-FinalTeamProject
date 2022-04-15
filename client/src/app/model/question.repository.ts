@@ -14,6 +14,7 @@ import { RestDataSource } from "./rest.datasource";
 export class QuestionRepository
 {
     private questions: Question[] = [];
+    private loaded =  false;
 
     constructor(private dataSource: RestDataSource)
     {
@@ -21,9 +22,20 @@ export class QuestionRepository
             this.questions=data;});
     }
 
+    //Load questions from the RestDataSource
+    loadQuestions(): void
+    {
+        this.loaded = true;
+        this.dataSource.getQuestions().subscribe(questions => this.questions = questions);
+    }
+
     //Returns array of question
     getQuestions(): Question[]
     {
+        if(!this.loaded)
+        {
+            this.loadQuestions();
+        }
       return this.questions;
     }
 
