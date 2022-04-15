@@ -98,7 +98,7 @@ export class RestDataSource
   /*GET Question*/
   getQuestions(): Observable<Question[]>
   {
-    return this.http.get<Question[]>(this.baseUrl + 'question-list');
+    return this.http.get<Question[]>(this.baseUrl + 'question-list', this.httpOptions);
   }
 
   /*ADD Question*/
