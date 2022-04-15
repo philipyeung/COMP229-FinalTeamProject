@@ -6,7 +6,7 @@ WebApp name: Survey Site
 Description: Survey-List Component - survey-list.component.ts
 */
 
-import { Component, Injectable } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { QuestionRepository } from '../model/question.repository';
 import { Questionnaire } from '../model/questionnaire.model';
 import {Router} from "@angular/router";
@@ -18,7 +18,7 @@ import { Survey } from '../model/survey.model';
   selector: 'app-survey-list',
   templateUrl: './survey-list.component.html'
 })
-export class SurveyListComponent
+export class SurveyListComponent implements OnInit
 {
   public selectedCategory = null;
   public surveysPerPage = 4;
@@ -75,5 +75,8 @@ export class SurveyListComponent
   selectSurvey(id: number): void
   {
     this.router.navigateByUrl('/questionnaire/' + id);
+  }
+
+  ngOnInit(): void {
   }
 }
