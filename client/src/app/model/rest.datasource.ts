@@ -99,7 +99,7 @@ export class RestDataSource
   getQuestions(): Observable<Question[]>
   {
 
-    return this.http.get<Question[]>(this.baseUrl + 'question-list', this.httpOptions);
+    return this.http.get<Question[]>(this.baseUrl + 'question-list');
   }
 
   /*ADD Question*/
