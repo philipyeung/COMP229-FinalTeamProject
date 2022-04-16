@@ -8,6 +8,7 @@ Description: Question Model - question.model.ts
 
 export class Question
 {
+
     constructor(
         public _id?: number,
         public title?: string,
@@ -15,7 +16,16 @@ export class Question
         public choice2?: string,
         public choice3?: string,
         public choice4?: string
+        
     ){}
+
+    clear(): void
+    {
+        this._id = null;
+        this.title = null;
+        this.choice1 = this.choice2 = this.choice3 = this.choice4 = null;    
+        
+    }
 
     public toString(): string
     {
