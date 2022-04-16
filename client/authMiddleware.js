@@ -5,7 +5,7 @@ const PASSWORD = 'admin';
 
 const mappings =
 {
-  get: ['/api/surveys', '/surveys'],
+  get: ['/api/surveys', '/surveys', '/api/question-list', '/question-list'],
   post: ['/api/question-list', '/question-list', 'api/categories', '/categories']
 }
 
